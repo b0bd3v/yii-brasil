@@ -1,0 +1,26 @@
+html, body {height:100%;padding:0;margin:0;}
+
+footer {
+	background: #333;
+    bottom:0;
+    position:fixed;
+    z-index:250;
+    width: 100%;
+    color: #FFF;
+    height: 6%;
+    padding: 1% 0 0 0;
+}
+
+footer .container {
+	text-align: center;
+}
+
+.dv_post {
+	position: relative;
+	float: left;
+	border: solid 1px #CCC;
+	padding: 2%;
+	border-radius: 5px;
+	width: 100%;
+	margin-bottom: 2%;
+}
