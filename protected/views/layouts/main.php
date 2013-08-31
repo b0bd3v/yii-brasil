@@ -9,11 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+
+	<?php
+		$assetUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('application.lib.bootstrap'));
+		Yii::app()->clientScript->registerCssFile($assetUrl.'/dist/css/bootstrap.css');
+		Yii::app()->clientScript->registerScriptFile($assetUrl.'/dist/js/bootstrap.min.js');
+		
+		$assetUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('application.lib.bootswatch'));
+		Yii::app()->clientScript->registerCssFile($assetUrl.'/bootstrap.min.css');
+		
+		$baseUrl = Yii::app()->baseUrl; 
+		$cs = Yii::app()->getClientScript();
+		$cs->registerCssFile($baseUrl.'/css/main.css');		  
+		 
+	?>
 	<link rel="stylesheet" href="/yii/css/main.css">
-
-
-
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -23,7 +34,7 @@
 <nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a href=<?php echo $this->createUrl('site/index') ?> >Yii Brasil</a>
+			<a class="navbar-brand" href="<?php echo Yii::app()->getHomeUrl(); ?>">Yii Brasil</a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
@@ -35,7 +46,6 @@
 		</div>
 	</div>
 </nav>
-
 <div class="container" id="main_container">
 	<?php echo $content; ?>
 </div>
