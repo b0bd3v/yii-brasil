@@ -36,9 +36,13 @@
 ehthumbs.db
 Thumbs.db
 
+# Eclipse #
+###########
+.project
 
 # Arquivos a serem ignorados #
 /assets/
 /framework/
 /protected/runtime/
 /protected/config/main.php
+
