@@ -1,4 +1,4 @@
-# Compiled source #
+#Compiled source #
 ###################
 *.com
 *.class
@@ -44,5 +44,4 @@ Thumbs.db
 /assets/
 /framework/
 /protected/runtime/
-/protected/config/main.php
-
+protected/config/main.php
