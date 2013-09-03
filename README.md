@@ -4,14 +4,27 @@ yii-brasil
 
 Projeto de Desenvolvimento do portal Yii Brasil
 
+Instalação do Ambiente de Desenvolvimento
+
+git clone https://github.com/yiibrasil/yii-brasil.git
+
+Criar as pastas /assets e /protected/runtime e data permissão de escrita.
+chmod -R 777 assets protected/runtime
+
+Copiar o arquivo main_develop.php e colocar o nome de main.php. Alterar dados de acesso para banco de dados local.
+
+Criar um .htacces na base do sistema.
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteBase /pastaDoSistema/
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule . /pastaDoSistema/index.php [L]
+</IfModule>
 
 
-Arquivo de configuração
-
-Existe um arquivo (protected/config/main_develop.php). Funciona como um template
-de configuração. Toda vez que criarmos um novo ambiente de desenvolvimento vamos
-copia-lo com o nome de main.php. Funciona igual para main_production.php. #robertomartins
-
+###Como usar o Migratios###
+Atualizar quando o banco estiver em funcionando 
 
 
 Git Flow
