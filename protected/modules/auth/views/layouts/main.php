@@ -1,5 +1,5 @@
 <?php
-/* @var $this AuthController */
+Yii::app()->bootstrap->register();
 ?>
 
 <div class="auth-module">

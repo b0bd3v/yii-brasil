@@ -2,7 +2,6 @@
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
-Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
@@ -13,12 +12,17 @@ return array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 
+	'aliases' => array(
+		'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'),
+	),
+
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
 		'application.modules.auth.*',
 		'application.modules.auth.components.*',
+		'bootstrap.helpers.TbHtml'
 	),
 
 	'modules'=>array(
@@ -28,9 +32,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'admin',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'generatorPaths' => array(
-				'bootstrap.gii'
-			),
+			'generatorPaths' => array('bootstrap.gii'),
 		),
 
 		'auth' => array(
@@ -38,15 +40,17 @@ return array(
 			'userClass' => 'Users', // the name of the user model class.
 			'userIdColumn' => 'id', // the name of the user id column.
 			'userNameColumn' => 'username', // the name of the user name column.
-			'defaultLayout' => 'application.views.layouts.main', // the layout used by the module.
+			'defaultLayout' => 'application.modules.auth.views.layouts.main', // the layout used by the module.
 			'viewDir' => null, // the path to view files to use with this module.
 		),
+
+		'dashboard',
 	),
 
 	// application components
 	'components'=>array(
-		'bootstrap'=>array(
-            'class'=>'bootstrap.components.Bootstrap',
+		'bootstrap' => array(
+            'class' => 'bootstrap.components.TbApi',   
         ),
 
         'authManager' => array(
