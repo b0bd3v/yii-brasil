@@ -4,20 +4,21 @@ class DashboardModule extends CWebModule
 {
 	public function init()
 	{
-		// this method is called when the module is being created
-		// you may place code here to customize the module or the application
-
-		// import the module-level models and components
+		
 		$this->setImport(array(
 			'dashboard.models.*',
 			'dashboard.components.*',
 		));
+
+		$this->layoutPath = Yii::getPathOfAlias('application.modules.dashboard.views.layouts');
+
 	}
 
 	public function beforeControllerAction($controller, $action)
 	{
 		if(parent::beforeControllerAction($controller, $action))
 		{
+			$controller->layout = 'column2';
 			// this method is called before any module controller action is performed
 			// you may place customized code here
 			return true;

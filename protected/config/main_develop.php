@@ -44,7 +44,7 @@ return array(
 			'viewDir' => null, // the path to view files to use with this module.
 		),
 
-		'dashboard',
+		'dashboard'
 	),
 
 	// application components
